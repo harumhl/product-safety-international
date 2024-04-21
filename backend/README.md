@@ -4,6 +4,7 @@
 
 ## How to Run
 
+1. Update `SQLALCHEMY_DATABASE_URL` in db/init.py accordingly
 1. Run `uvicorn main:app --reload`
 1. Access `http://127.0.0.1:8000`
 
