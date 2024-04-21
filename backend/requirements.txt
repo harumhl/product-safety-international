@@ -1,4 +1,4 @@
-django==4.2.11
-django-rest-framework==0.1.0
-djangorestframework==3.15.1
-psycopg==3.1.18
+fastapi==0.110.2 # Flask and Django are web frameworks but fastapi is for api
+uvicorn[standard]==0.29.0 # Flask and Django are not good as web servers in prod, but uvicorn is a ASGI and is production-ready (fastapi needs ASGI, not WSGI)
+SQLAlchemy==2.0.29
+psycopg2==2.9.9
