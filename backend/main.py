@@ -5,9 +5,10 @@ from typing import Union
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 
-# from models.schemas import Item
 from db.init import get_db
 from db import crud
+from models import model
+from models import schemas
 
 app = FastAPI()
 
@@ -24,6 +25,6 @@ def read_root():
 # def update_item(item_id: int, item: Item):
 #     return {"item_name": item.name, "item_id": item_id}
 
-@app.get("/products")
-def get_products(db: Session = Depends(get_db)):
-    return crud.get_products(db)
+@app.get("/products/{product_id}", response_model=schemas.ProductRead)
+def get_product_by_id(product_id: str, db: Session = Depends(get_db)) -> model.Product:
+    return crud.get_product_by_id(db, product_id)
